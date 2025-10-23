@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Me | Recipe Hub</title>
+    <link rel="stylesheet" href="/css/contact.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: "Quicksand", sans-serif;
+        background: #fafafa;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+
+      .header {
+        text-align: center;
+        padding: 60px 20px 30px;
+      }
+
+      .header h1 {
+        font-size: 2.5rem;
+        color: #115e67;
+        margin-bottom: 10px;
+      }
+
+      .header p {
+        font-size: 1rem;
+        color: #555;
+      }
+
+      .contact-container {
+        display: flex;
+        justify-content: center;
+        padding: 30px;
+      }
+
+      .contact-form {
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        width: 100%;
+        max-width: 500px;
+        transition: transform 0.2s ease;
+      }
+
+      .contact-form:hover {
+        transform: translateY(-3px);
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #115e67;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 1rem;
+        outline: none;
+        transition: border 0.2s ease;
+      }
+
+      input:focus,
+      textarea:focus {
+        border-color: #115e67;
+      }
+
+      .submit-btn {
+        width: 100%;
+        padding: 12px;
+        background: #115e67;
+        color: white;
+        font-size: 1.1rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      .submit-btn:hover {
+        background: #0e4e55;
+      }
+
+      .footer {
+        text-align: center;
+        padding: 20px;
+        background: #115e67;
+        color: white;
+        font-size: 0.9rem;
+        margin-top: 40px;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <h1>Contact Me</h1>
+      <p>
+        Have a recipe to share or feedback for Recipe Hub? I’d love to hear from
+        you!
+      </p>
+    </header>
+
+    <main
+      class="contact-container"
+      style="
+        display: flex;
+        justify-content: center;
+        padding: 30px;
+        flex-direction: column;
+        align-items: center;
+      "
+    >
+      <!-- New contact info box -->
+      <% if (contactInfo) { %>
+      <div class="contact-form" style="margin-bottom: 30px; text-align: center">
+        <p><strong>Phone:</strong> <%= contactInfo.phone %></p>
+        <p><strong>Email:</strong> <%= contactInfo.email %></p>
+        <p><strong>Address:</strong> <%= contactInfo.address %></p>
+      </div>
+      <% } %>
+
+      <!-- Existing message form -->
+      <form action="/send-message" method="POST" class="contact-form">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your name"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Your Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            placeholder="Write your message here..."
+            required
+          ></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </main>
+
+    <footer class="footer">
+      <p>
+        © <%= new Date().getFullYear() %> Recipe Hub | Made with ❤️ by Khushie
+      </p>
+    </footer>
+  </body>
+</html>

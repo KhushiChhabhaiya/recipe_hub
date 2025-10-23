@@ -1,0 +1,90 @@
+  <body>
+    <div id="hero">
+      <br />
+      <%- include("header.ejs") %>
+      <%- include("nav.ejs") %>
+
+      <h1>Global Flavors Delivered to Your Kitchen</h1>
+    </div>
+    <div id="searchHere">
+      <h2 style="font-size: 2rem; font-family: 'Quicksand', sans-serif;">Search Recipes</h2>
+      <form id="inner" action="/search" method="POST">
+        <input
+          type="text"
+          name="searchRecipe"
+          placeholder="e.g japanese"
+          style="height: 3rem; padding: 1rem; width: 85%; border-radius: 9px"
+        />
+        <button
+          type="submit"
+          style="border: none; height: 3rem; width: 13%; border-radius: 9px"
+        >
+          <img
+            src="https://cdn.jsdelivr.net/npm/bootstrap-icons/icons/search.svg"
+            alt="search icon"
+            style="height: 50%"
+          />
+        </button>
+      </form>
+    </div>
+    <div>
+      <div class="happy">
+        <a href="/cake">
+        <button>
+          <div class="card-img-top CheeseCake" style="display: flex">
+            <div class="food"><h3>Cheese Cake</h3></div>
+          </div>
+        </button>
+        </a>
+        <a href="/japanese">
+        <button>
+          <div class="card-img-top japanese" style="display: flex">
+            <div class="food"><h3>Japanese</h3></div>
+          </div>
+        </button>
+        </a>
+
+        <a href="/italian">
+        <button>
+          <div class="card-img-top italian" style="display: flex">
+            <div class="food"><h3>Italian</h3></div>
+          </div>
+        </button>
+        </a>
+
+        <a href="/diet">
+        <button>
+          <div class="card-img-top diet" style="display: flex">
+            <div class="food"><h3>Diet</h3></div>
+          </div>
+        </button>
+        </a>
+      </div>
+    </div>
+    <div id="about">
+      <div class="aboutMe">
+        <div class="mypic">
+          <img src="myPic.jpeg" alt="My Picture" id="myImg" />
+        </div>
+        <div>
+          <h2>About Me</h2>
+          <br /><br />
+          <p id="para">
+            Hi! I’m Khushie  — recipe explorer, and occasional
+            kitchen chaos survivor . When I’m not drooling over delicious
+            creations online, I’m hunting for tasty recipes, testing new flavors
+            (sometimes successfully!), and sharing them here on Recipe Hub. I
+            started this blog to make finding fun, easy, and yummy recipes a
+            breeze. My goal? To make cooking exciting, not stressful, and help
+            you discover new dishes without the hassle. I love music, a little
+            dancing in the kitchen, and being the ultimate “taste tester” (even
+            if it’s just for fun ). So welcome to Recipe Hub — where cooking
+            is enjoyable, mistakes are allowed, and dessert always comes first!
+            
+          </p>
+        </div>
+      </div>
+    </div>
+    <%- include("footer.ejs") %>
+  </body>
+</html>

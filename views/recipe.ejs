@@ -1,0 +1,176 @@
+<%- include("header.ejs") %>
+
+<nav
+  class="navbar navbar-expand-lg custom-navbar mx-5 px-5"
+  style="background-color: white; height: 7rem"
+>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+      <img src="/khushie-logo-transparent.png" style="height: 3rem" />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            href="/"
+            style="font-size: x-large"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            href="/#about"
+            style="font-size: x-large"
+            >About Me</a
+          >
+        </li>
+      </ul>
+      <a
+        href="/contact"
+        class="btn btn-outline-success on-hover"
+        style="
+          color: white;
+          background-color: black;
+          border-radius: 40px;
+          padding: 0.6rem 1.5rem;
+          text-decoration: none;
+        "
+      >
+        Get In Touch
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div id="cookfor">
+  <h2 id="cookforh2">Cook For Your Life</h2>
+</div>
+
+<div
+  class="blockcolumn"
+>
+  <div
+    style="
+      width: 70%;
+      padding-top: 6rem;
+      padding-left: 6rem;
+      margin-bottom: 50px;
+    "
+  >
+    <div>
+      <h1 style="font-size: 3.5rem; width: 80%"><%= recipe.name %></h1>
+    </div>
+    <br /><br />
+    <span>
+      <h5 style="font-weight: lighter">Written By <%= recipe.author %></h5>
+    </span>
+    <br /><br />
+
+    <div style="font-family: 'Quicksand', sans-serif">
+      <h2><%= recipe.cuisine %> Recipes</h2>
+      <br />
+      <button
+        style="
+          padding: 0.9rem;
+          border-radius: 0.5rem;
+          background-color: black;
+          color: white;
+          border: none;
+        "
+      >
+        Time: <%= recipe.prep_time || 'N/A' %>
+      </button>
+      <br />
+      <hr id="hr" />
+      <br />
+      <h5>
+        <b>Author:</b> <%= recipe.author %><br />
+        <b>Yield:</b> <%= recipe.yield || 'N/A' %><br />
+      </h5>
+      <br />
+      <h3><b>Description</b></h3>
+      <br />
+      <p style="font-size: larger; width: 80%">
+        <i><%= recipe.description %></i>
+      </p>
+      <hr id="hr" />
+      <br /><br />
+      <h3><b>Ingredients:</b></h3>
+      <br />
+      <ul style="font-size: larger">
+        <% recipe.ingredients.split(',').forEach(ingredient => { %>
+        <li><%= ingredient.trim() %></li>
+        <% }) %>
+      </ul>
+      <hr id="hr" />
+      <br /><br />
+      <h3><b>Instructions</b></h3>
+      <br />
+      <p style="font-size: larger; width: 80%"><%= recipe.instructions %></p>
+
+      <hr id="hr" />
+      <br />
+    </div>
+    <a href="/" style="font-size: larger; color: black; text-decoration: none">
+      ← Back to home
+    </a>
+  </div>
+
+  <div id="lastdiv">
+    <img src="/Woman.jpeg" alt="woman pic" style="border-radius: 50%" />
+    <span
+      style="
+        font-family: 'Quicksand', sans-serif;
+        font-size: x-large;
+        font-weight: 500;
+      "
+      >Don't Miss a Recipe</span
+    >
+    <div style="display: flex; width: 50%; justify-content: space-between">
+      <a
+        href="https://www.instagram.com"
+        target="_blank"
+        class="text-white hoverBox"
+      >
+        <!-- Instagram SVG -->
+      </a>
+      <a
+        href="https://www.facebook.com"
+        target="_blank"
+        class="text-white hoverBox"
+      >
+        <!-- Facebook SVG -->
+      </a>
+      <a
+        href="https://in.pinterest.com/khushie149"
+        target="_blank"
+        class="text-white hoverBox"
+      >
+        <!-- Pinterest SVG -->
+      </a>
+    </div>
+    <p style="font-size: larger; text-align: center">
+      Discover a world of mouth-watering dishes from different cuisines — all in
+      one place. Whether you’re craving desserts, healthy meals, or traditional
+      favorites, Recipe Hub brings you the best recipes shared by passionate
+      cooks. Stay tuned and keep your taste buds excited!
+    </p>
+  </div>
+</div>
+
+<%- include("footer.ejs") %>

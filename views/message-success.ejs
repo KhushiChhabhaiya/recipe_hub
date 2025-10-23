@@ -1,0 +1,121 @@
+<%- include("header.ejs") %>
+
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+
+  .success-wrap {
+    height: 100vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+    background: linear-gradient(135deg, #fffaf0 0%, #f6fffb 100%);
+  }
+
+  .success-card {
+    background: #fff;
+    width: 100%;
+    max-width: 720px;
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(17,94,103,0.08);
+    padding: 2.5rem;
+    text-align: center;
+    font-family: "Quicksand", sans-serif;
+  }
+
+  .heart {
+    display: inline-block;
+    font-size: 3rem;
+    transform: translateY(4px);
+    color: #ff6b81;
+    animation: pop 900ms ease;
+  }
+
+  @keyframes pop {
+    0% { transform: scale(0.7) translateY(6px); opacity: 0.6; }
+    60% { transform: scale(1.05) translateY(0); opacity: 1; }
+    100% { transform: scale(1) translateY(0); }
+  }
+
+  .success-title {
+    font-size: 1.8rem;
+    color: #115e67;
+    margin: 0.6rem 0 0.4rem;
+    font-weight: 700;
+  }
+
+  .success-sub {
+    color: #476a6a;
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+  }
+
+  .cookie {
+    display: inline-block;
+    margin-top: 1rem;
+    background: #fff7ef;
+    color: #c76a1b;
+    padding: 0.6rem 1rem;
+    border-radius: 999px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(199,106,27,0.08);
+  }
+
+  .home-btn {
+    display: inline-block;
+    margin-top: 1.5rem;
+    background: #115e67;
+    color: white;
+    padding: 0.75rem 1.2rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .small {
+    font-size: 0.9rem;
+    color: #7a9b9b;
+    margin-top: 0.8rem;
+  }
+</style>
+
+<main class="success-wrap">
+  <div class="success-card">
+    <div style="font-size: 3rem;">🎉</div>
+    <div class="heart">❤️</div>
+    <h2 class="success-title">Thanks, <%= senderName %> — message received!</h2>
+    <p class="success-sub">
+      We’ve saved your message and a little kitchen fairy will read it soon. 🍪
+    </p>
+
+    <div class="cookie">You’ll hear back from us shortly.</div>
+
+    <div>
+      <a href="/" class="home-btn">Back to Home</a>
+    </div>
+
+    <div class="small">
+      You will be redirected to the homepage in <span id="count">10</span> seconds.
+    </div>
+  </div>
+</main>
+
+<script>
+  
+  (function(){
+    var seconds = 10; 
+    var el = document.getElementById('count');
+    if(!el) return;
+    var interval = setInterval(function(){
+      seconds--;
+      el.textContent = seconds;
+      if(seconds <= 0){
+        clearInterval(interval);
+        window.location.href = '/';
+      }
+    }, 1000);
+  })();
+</script>
